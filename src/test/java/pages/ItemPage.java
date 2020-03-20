@@ -11,7 +11,7 @@ import java.util.List;
 import static pages.ProductsPage.itemName;
 
 public class ItemPage extends BasePage {
-    @FindBy(className = "inventory_details")
+    @FindBy(xpath = "//div[@class='inventory_details_name']")
     WebElement itemDetails;
     @FindBy(className = "btn_primary.btn_inventory")
     WebElement addBtn;

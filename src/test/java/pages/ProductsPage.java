@@ -13,14 +13,15 @@ public class ProductsPage extends BasePage{
     public static String itemName;
     @FindBy(className = "product_label")
     WebElement productsTitle;
-    @FindBy(className = "inventory_item_name")
+    @FindBy(css = ".inventory_item_name")
     List<WebElement> items;
-    @FindBy(className = "btn_primary.btn_inventory")
+    @FindBy(xpath = "//button[@class='btn_primary btn_inventory']")
     List<WebElement> addBtns;
-    @FindBy(className = "btn_secondary.btn_inventory")
+    @FindBy(xpath = "//button[@class='btn_secondary btn_inventory']")
     List<WebElement> removeBtns;
     @FindBy(className = "product_sort_container")
     WebElement sortMenu;
+
 
     public ProductsPage(WebDriver driver) {
         super(driver);
@@ -71,8 +72,10 @@ public class ProductsPage extends BasePage{
     public ProductsPage sortPriceHiLo(){
         Select select = new Select(sortMenu);
         select.selectByValue("hilo");
+
         return this;
     }
+
 
 
 }

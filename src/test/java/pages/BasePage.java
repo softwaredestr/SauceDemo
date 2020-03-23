@@ -32,6 +32,10 @@ public abstract class BasePage {
     public void waitClickableElement(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
+    public void waitVisibleElement(WebElement element){
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
 
     public void waitSelectedElement(WebElement element) {
         wait.until(ExpectedConditions.elementToBeSelected(element));

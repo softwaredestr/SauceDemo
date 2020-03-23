@@ -13,7 +13,7 @@ public class ProductsPage extends BasePage{
     public static String itemName;
     @FindBy(className = "product_label")
     WebElement productsTitle;
-    @FindBy(className = "inventory_item_name")
+    @FindBy(css = ".inventory_item_name")
     List<WebElement> items;
     @FindBy(xpath = "//button[@class='btn_primary btn_inventory']")
     List<WebElement> addBtns;
@@ -21,7 +21,7 @@ public class ProductsPage extends BasePage{
     List<WebElement> removeBtns;
     @FindBy(className = "product_sort_container")
     WebElement sortMenu;
-    boolean ItemsSorted = false;
+
 
     public ProductsPage(WebDriver driver) {
         super(driver);
@@ -75,11 +75,7 @@ public class ProductsPage extends BasePage{
 
         return this;
     }
-    @Step("Verify Sorting")
-    public ProductsPage verifySorting(String expected){
-        Assert.assertEquals(sortMenu.getText(), expected);
-        return this;
-    }
+
 
 
 }

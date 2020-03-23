@@ -38,9 +38,9 @@ public class HeaderPage extends BasePage {
         return this;
     }
     @Step("Click cart icon")
-    public HeaderPage clickCartIcon(){
+    public CartPage clickCartIcon(){
         cartIcon.click();
-        return this;
+        return new CartPage(driver);
     }
     @Step("Click menu button")
     public HeaderPage clickMenuBtn(){
@@ -48,9 +48,28 @@ public class HeaderPage extends BasePage {
         waitClickableElement(allItems);
         return this;
     }
+    @Step("Click All items")
+    public ProductsPage clickAllItems(){
+        waitClickableElement(allItems);
+        allItems.click();
+        return new ProductsPage(driver);
+    }
     @Step("Click Reset App State")
     public HeaderPage clickReset(){
-
+        waitClickableElement(resetLink);
+        resetLink.click();
+        waitClickableElement(cartIcon);
         return this;
+    }
+    @Step("Click About")
+    public HeaderPage clickAbout(){
+        waitClickableElement(aboutLink);
+        aboutLink.click();
+        return this;
+    }
+    @Step("Click Logout")
+    public LoginPage clickLogout(){
+        logoutLink.click();
+        return new LoginPage(driver);
     }
 }
